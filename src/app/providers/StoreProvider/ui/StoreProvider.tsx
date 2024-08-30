@@ -4,13 +4,12 @@ import { createReduxStore } from 'app/providers/StoreProvider/config/store';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { DeepPartial } from '@reduxjs/toolkit';
 
-interface StoreProvider {
+interface StoreProviderProps {
     children?: ReactNode;
-    initialState?: DeepPartial<StateSchema>
+    initialState?: DeepPartial<StateSchema>;
 }
 
-// eslint-disable-next-line no-redeclare
-export const StoreProvider = (props: StoreProvider) => {
+export const StoreProvider = (props: StoreProviderProps) => {
     const {
         children,
         initialState,
