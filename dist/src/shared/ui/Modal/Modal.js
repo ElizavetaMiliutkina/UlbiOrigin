@@ -13,7 +13,6 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback, useEffect, useRef, useState, } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
 var ANIMATION_DELAY = 300;
 export var Modal = function (props) {
@@ -21,7 +20,6 @@ export var Modal = function (props) {
     var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose;
     var _b = useState(false), isClosing = _b[0], setIsClosing = _b[1];
     var timerRef = useRef();
-    var theme = useTheme().theme;
     var closeHandler = useCallback(function () {
         if (onClose) {
             setIsClosing(true);
@@ -52,7 +50,6 @@ export var Modal = function (props) {
     var mods = (_a = {},
         _a[cls.opened] = isOpen,
         _a[cls.isClosing] = isClosing,
-        _a[cls[theme]] = true,
         _a);
     return (_jsx(Portal, { children: _jsx("div", __assign({ className: classNames(cls.Modal, mods, [className]) }, { children: _jsx("div", __assign({ className: cls.overlay, onClick: closeHandler }, { children: _jsx("div", __assign({ className: cls.content, onClick: onContentClick }, { children: children }), void 0) }), void 0) }), void 0) }, void 0));
 };

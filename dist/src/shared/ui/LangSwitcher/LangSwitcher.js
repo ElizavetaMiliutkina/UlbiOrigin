@@ -58,5 +58,5 @@ export var LangSwitcher = function (_a) {
             return [2 /*return*/];
         });
     }); };
-    return (_jsx(Button, __assign({ className: classNames('', {}, [className]), theme: ButtonTheme.CLEAR, onClick: toggle }, { children: t(short ? 'Короткий язык' : 'Язык') }), void 0));
+    return (_jsx(Button, __assign({ className: classNames('', {}, [className]), theme: ButtonTheme.BACKGROUND_INVERTED, onClick: toggle }, { children: t(short ? 'Короткий язык' : 'Язык') }), void 0));
 };
