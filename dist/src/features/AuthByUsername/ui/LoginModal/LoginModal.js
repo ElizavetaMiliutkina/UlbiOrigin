@@ -13,8 +13,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginForm } from '../LoginForm/LoginForm';
-import cls from './LoginModal.module.scss';
 export var LoginModal = function (props) {
     var className = props.className, isOpen = props.isOpen, onClose = props.onClose;
-    return (_jsx(Modal, __assign({ className: classNames(cls.LoginModal, {}, [className]), isOpen: isOpen, onClose: onClose }, { children: _jsx(LoginForm, {}, void 0) }), void 0));
+    return (_jsx(Modal, __assign({ className: classNames('', {}, [className]), isOpen: isOpen, onClose: onClose }, { children: _jsx(LoginForm, {}, void 0) }), void 0));
 };

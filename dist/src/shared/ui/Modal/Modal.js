@@ -17,8 +17,9 @@ import cls from './Modal.module.scss';
 var ANIMATION_DELAY = 300;
 export var Modal = function (props) {
     var _a;
-    var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose;
+    var className = props.className, children = props.children, isOpen = props.isOpen, onClose = props.onClose, lazy = props.lazy;
     var _b = useState(false), isClosing = _b[0], setIsClosing = _b[1];
+    var _c = useState(false), isMounted = _c[0], setIsMounted = _c[1];
     var timerRef = useRef();
     var closeHandler = useCallback(function () {
         if (onClose) {
@@ -47,9 +48,17 @@ export var Modal = function (props) {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+    useEffect(function () {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
     var mods = (_a = {},
         _a[cls.opened] = isOpen,
         _a[cls.isClosing] = isClosing,
         _a);
+    if (lazy && !isMounted) {
+        return null;
+    }
     return (_jsx(Portal, { children: _jsx("div", __assign({ className: classNames(cls.Modal, mods, [className]) }, { children: _jsx("div", __assign({ className: cls.overlay, onClick: closeHandler }, { children: _jsx("div", __assign({ className: cls.content, onClick: onContentClick }, { children: children }), void 0) }), void 0) }), void 0) }, void 0));
 };

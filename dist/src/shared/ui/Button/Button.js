@@ -39,11 +39,12 @@ export var ButtonSize;
 })(ButtonSize || (ButtonSize = {}));
 export var Button = function (props) {
     var _a;
-    var className = props.className, children = props.children, theme = props.theme, square = props.square, _b = props.size, size = _b === void 0 ? ButtonSize.M : _b, otherProps = __rest(props, ["className", "children", "theme", "square", "size"]);
+    var className = props.className, children = props.children, theme = props.theme, square = props.square, _b = props.size, size = _b === void 0 ? ButtonSize.M : _b, disabled = props.disabled, otherProps = __rest(props, ["className", "children", "theme", "square", "size", "disabled"]);
     var mods = (_a = {},
         _a[cls[theme]] = true,
         _a[cls.square] = square,
         _a[cls[size]] = true,
+        _a[cls.disabled] = disabled,
         _a);
-    return (_jsx("button", __assign({ type: "button", className: classNames(cls.Button, mods, [className]) }, otherProps, { children: children }), void 0));
+    return (_jsx("button", __assign({ type: "button", className: classNames(cls.Button, mods, [className]), disabled: disabled }, otherProps, { children: children }), void 0));
 };
