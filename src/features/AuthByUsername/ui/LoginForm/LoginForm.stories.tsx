@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 
 export default {
     title: 'features/LoginForm',
@@ -11,6 +11,7 @@ export default {
     },
 } as ComponentMeta<typeof LoginForm>;
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const Primary = Template.bind({});
